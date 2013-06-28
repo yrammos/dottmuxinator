@@ -1,0 +1,29 @@
+# ~/.tmuxinator/mainmux.yml
+# you can make as many tabs as you wish...
+
+project_name: mainmux 
+project_root: ~/Dropbox/Dissertation/avanti
+tabs:
+  - Scratchpad:
+     - # just a prompt
+  - LaTeX:
+      layout: f130,181x52,0,0[181x34,0,0,1,181x17,0,35,2]  
+      panes:
+        - # prompt, placeholder for ST2/LaTeXmk script (mainmux:2.1)
+        - multitail -f ~/.subl.log
+  - Git:
+      layout: 2bb6,181x52,0,0[181x26,0,0,3,181x25,0,27,4]
+      panes:
+        - tig
+        - # prompt intended for git-related commands
+  # - Docs:
+  #     layout: tiled
+  #     panes:
+  #       - cheat vi 
+  #       - cheat git
+  #       - tmux list-keys | less
+  #       - bind -P | less
+  - Admin:
+      - top -stats pid,command,rsize,vsize -o rsize -s 5
+  - nyussh:
+      - ssh -2 -x theory.smusic.nyu.edu -l rammos
